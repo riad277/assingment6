@@ -62,7 +62,7 @@ function showButton(buttons) {
     for (const button of buttons) {
         const buttonDiv = document.createElement('div');
         buttonDiv.innerHTML = `
-         <button onclick="handleButtonClick(this, ${button.level_no})" class="btn text-[#422AD5] font-semibold px-5 border-2 border-[#422AD5] hover:bg-[#ca3a3a] hover:text-white">
+         <button onclick="handleButtonClick(this, ${button.level_no})" class="btn poppins text-[#422AD5] font-semibold px-5 border-2 border-[#422AD5] hover:bg-[#ca3a3a] hover:text-white">
              <img  src="assets/fa-book-open.png" alt="">Lesson-${button.level_no}
          </button>
         `;
@@ -107,7 +107,7 @@ function DisplayCards(cards) {
             <div class="py-20 col-span-full flex flex-col justify-center items-center text-center">
                <img src="assets/alert-error.png" alt="">
               <p class="text-sm text-[#79716B] mt-2">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
-              <p class="text-2xl mt-2">নেক্সট Lesson এ যান</p>
+              <p class="text-2xl text-[#292524] mt-2">নেক্সট Lesson এ যান</p>
             </div>
         `;
         defaultContent.style.display = 'none';
@@ -116,11 +116,11 @@ function DisplayCards(cards) {
         for (const card of cards) {
             // console.log(card.id)
             const cardDiv = document.createElement('div');
-            cardDiv.classList.add('bg-white', 'rounded-lg', 'mt-4', 'hover:bg-slate-200');
+            cardDiv.classList.add('bg-white', 'rounded-lg', 'mt-4', 'hover:bg-slate-100','shadow-xl');
             cardDiv.innerHTML = `
-                <h1 class="text-center text-2xl font-bold mt-8 mb-2">${card.word}</h1>
-                <p class="text-center text-xl mb-2">Meaning / Pronunciation</p>
-                <p class="text-center">"${card.meaning} / ${card.pronunciation}"</p>
+                <h1 class="text-center inter text-2xl font-bold mt-8 mb-2">${card.word}</h1>
+                <p class="text-center inter font-medium text-xl mb-2">Meaning / Pronunciation</p>
+                <p class="text-center hindSiliguri font-medium text-[#18181B] opacity-80 mb-2">"${card.meaning ? card.meaning : 'অর্থ নেই'} / ${card.pronunciation}"</p>
                 <div class="flex justify-around mb-6">
                     <div onclick=loadCardDetails(${card.id}) class="bg-[#1A91FF30] p-3 rounded-lg"> <i  class="fa-solid fa-circle-info"></i></div>
                     <div class="bg-[#1A91FF30] p-3 rounded-lg"> <i class="fa-solid fa-volume-high"></i></div>
@@ -149,15 +149,22 @@ function displaycardDetails(cardData){
 
     const detailsContainer = document.getElementById('details-container');
     detailsContainer.innerHTML=`
-    <h1 class="text-3xl font-bold">${cardData.word}(<i class="fa-solid fa-microphone-lines"></i> : ${cardData.pronunciation})</h1>
-    <p class="mt-2 font-bold">Meaning</>
-    <p> ${cardData.meaning}</p>
+    <div class="p-6 border border-[#EDF7FF] rounded-xl mb-6">
+    <h1 class="text-3xl poppins font-bold">${cardData.word}(<i class="fa-solid fa-microphone-lines"></i> : ${cardData.pronunciation})</h1>
+    <p class="mt-2 poppins font-bold">Meaning</>
+    <p class="hindSiliguri mb-2"> ${cardData.meaning ? cardData.meaning : 'অর্থ পাওয়া যাই নি'}</p>
     <p class="mt-2 font-bold"> Example</p>
-    <p>${cardData.sentence}</p>
-    <p class="mt-2 font-bold"> সমার্থক শব্দ গুলো</p>
-    
+    <p class="poppins opacity-80">${cardData.sentence}</p>
+    <p class="mt-2 hindSiliguri font-bold mb-2"> সমার্থক শব্দ গুলো</p>
+     <div class="flex poppins opacity-80 flex-wrap gap-2">
+     ${cardData.synonyms.map(synonym => `
+      <button class="btn   bg-[#EDF7FF] border-none">${synonym}</button>
+      `).join('')}
+     </div>
+     </div>
     
     `
+   
    
 
 
