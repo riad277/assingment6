@@ -1,3 +1,8 @@
+document.getElementById('nav1').style.display="none";
+document.getElementById('learn-section').style.display="none";
+document.getElementById('accordian').style.display="none";
+
+
 document.getElementById('learnbtn').addEventListener('click', function () {
     const learnSection = document.getElementById('learn-section');
     learnSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -7,10 +12,42 @@ document.getElementById('faqbtn').addEventListener('click', function () {
     const accordianSection = document.getElementById('accordian');
     accordianSection.scrollIntoView({ behavior: 'smooth',block: 'start' });
 });
+document.getElementById('logoutbtn').addEventListener('click', function () {
+    document.getElementById('nav1').style.display="none";
+    document.getElementById('learn-section').style.display="none";
+    document.getElementById('accordian').style.display="none";
+    document.getElementById('banner').style.display="flex";
+
+});
 
 
 
 
+document.getElementById('start-btn').addEventListener('click', function () {
+    const inputName = document.getElementById('name').value.trim();
+    const passwordNum = document.getElementById('password').value.trim();
+
+    if (inputName === '' || passwordNum === '') {
+        alert('Please fill both the name and password fields.');
+        return;
+    }
+
+    if (passwordNum !== '123456') {
+        alert('Incorrect password. Please enter the correct password.');
+        return;
+        
+    }
+
+    // console.log('Both fields are filled and the password is correct.');
+    // alert('Welcome! You are now logged in.');
+
+    document.getElementById('nav1').style.display = 'flex';
+    document.getElementById('learn-section').style.display = 'block';
+    document.getElementById('accordian').style.display = 'block';
+    document.getElementById('banner').style.display = 'none';
+
+
+});
 
 
 function loadLessons() {
@@ -25,8 +62,8 @@ function showButton(buttons) {
     for (const button of buttons) {
         const buttonDiv = document.createElement('div');
         buttonDiv.innerHTML = `
-         <button onclick="handleButtonClick(this, ${button.level_no})" class="btn text-[#422AD5] font-semibold px-5 border-2 border-[#422AD5]">
-             <img src="assets/fa-book-open.png" alt="">Lesson-${button.level_no}
+         <button onclick="handleButtonClick(this, ${button.level_no})" class="btn text-[#422AD5] font-semibold px-5 border-2 border-[#422AD5] hover:bg-[#ca3a3a] hover:text-white">
+             <img  src="assets/fa-book-open.png" alt="">Lesson-${button.level_no}
          </button>
         `;
         buttonContainer.append(buttonDiv);
@@ -48,6 +85,7 @@ function handleButtonClick(clickedButton, buttonId) {
 }
 
 function loadCards(buttonId) {
+    showLoader();
     fetch(`https://openapi.programming-hero.com/api/level/${buttonId}`)
         .then((res) => res.json())
         .then((data) => DisplayCards(data.data))
@@ -78,7 +116,7 @@ function DisplayCards(cards) {
         for (const card of cards) {
             // console.log(card.id)
             const cardDiv = document.createElement('div');
-            cardDiv.classList.add('bg-white', 'rounded-lg', 'mt-4');
+            cardDiv.classList.add('bg-white', 'rounded-lg', 'mt-4', 'hover:bg-slate-200');
             cardDiv.innerHTML = `
                 <h1 class="text-center text-2xl font-bold mt-8 mb-2">${card.word}</h1>
                 <p class="text-center text-xl mb-2">Meaning / Pronunciation</p>
@@ -90,7 +128,9 @@ function DisplayCards(cards) {
             `;
             displayCard.append(cardDiv);
         }
+        
     }
+    hideLoader();
 }
 
 
@@ -121,6 +161,16 @@ function displaycardDetails(cardData){
    
 
 
+}
+
+
+const showLoader=()=>{
+    document.getElementById('loader').classList.remove('hidden')
+    document.getElementById('card-container').classList.add('hidden')
+}
+const hideLoader=()=>{
+    document.getElementById('loader').classList.add('hidden')
+    document.getElementById('card-container').classList.remove('hidden')
 }
 
 
