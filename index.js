@@ -1,3 +1,16 @@
+document.getElementById('learnbtn').addEventListener('click', function () {
+    const learnSection = document.getElementById('learn-section');
+    learnSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+document.getElementById('faqbtn').addEventListener('click', function () {
+    const accordianSection = document.getElementById('accordian');
+    accordianSection.scrollIntoView({ behavior: 'smooth',block: 'start' });
+});
+
+
+
+
 
 
 function loadLessons() {
@@ -105,14 +118,7 @@ function displaycardDetails(cardData){
     
     
     `
-    // const synonymsContainer = document.getElementById('synonyms-container');
-    // cardData.synonyms.forEach(synonym => {
-    //     const synonymButton = document.createElement('button');
-    //     synonymButton.className = 'btn bg-[#422AD5] text-white font-bold rounded-xl p-2';
-    //     synonymButton.textContent = synonym;
-    //     synonymsContainer.appendChild(synonymButton);
-    // });
-    // detailsContainer.append(synonymsContainer)
+   
 
 
 }

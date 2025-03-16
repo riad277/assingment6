@@ -27,23 +27,30 @@
 .poppins{
   font-family: "Poppins", sans-serif;
 }
+
+html{
+    scroll-behavior: smooth;
+}
+
 </style>
 
 </head>
 <body>
+
+    <nav class="sticky top-0 z-50 bg-slate-100 shadow-md py-2 mx-8 mt-3 flex justify-between">
+        <div class="flex items-center">
+            <p class="">English</p>
+            <img src="assets/logo.png" alt="">
+            <p class="">জানালা</p>
+        </div>
+        <div class="flex items-center gap-3">
+            <button id="faqbtn" class="btn text-[#422AD5] px-5  font-semibold border-2 border-[#422AD5]"><img src="assets/fa-circle-question.png" alt="">Faq</button>
+            <button id="learnbtn" class="btn text-[#422AD5]  font-semibold px-5 border-2  border-[#422AD5]"><img src="assets/fa-book-open.png" alt="">Learn</button>
+            <button class="btn text-[#422AD5]  font-semibold px-5 border-2  border-[#422AD5]"><img src="assets/fa-arrow-right-from-bracket.png" alt="">Logout</button>
+        </div>
+    </nav>
+
     <header class="mx-10 mt-5">
-        <nav class="flex justify-between">
-            <div class="flex items-center">
-                <p class="">English</p>
-                <img src="assets/logo.png" alt="">
-                <p class="">জানালা</p>
-            </div>
-            <div class="flex items-center gap-3">
-                <button class="btn text-[#422AD5] px-5  font-semibold border-2 border-[#422AD5]"><img src="assets/fa-circle-question.png" alt="">Faq</button>
-                <button class="btn text-[#422AD5]  font-semibold px-5 border-2  border-[#422AD5]"><img src="assets/fa-book-open.png" alt="">Learn</button>
-                <button class="btn text-[#422AD5]  font-semibold px-5 border-2  border-[#422AD5]"><img src="assets/fa-arrow-right-from-bracket.png" alt="">Logout</button>
-            </div>
-        </nav>
 
         <section class="mt-14 flex items-center ">
             <div>
@@ -65,10 +72,11 @@
         </section>
     </header>
 
-    <main class="mt-24">
-        <h1 class="items-center text-center text-3xl font-bold"><span class="text-[#00BCFF] ">Let's</span> Learn Vocabularies</h1>
+    <main id="learn-section" class="mt-56 mb-0">
+      
+            <h1 class="items-center text-center text-3xl font-bold"><span class="text-[#00BCFF] ">Let's</span> Learn Vocabularies</h1>
 
-        <section>
+        <section >
             <div id="button-container" class="mt-5 mb-5 flex justify-center gap-5 items-center">
             </div>
 
@@ -86,6 +94,7 @@
                 </div>          
             </div>
         </section>
+       
          
         <!-- Open the modal using ID.showModal() method -->
     
