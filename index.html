@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- daisy apa -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@$5/themes.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.4/dist/full.min.css" rel="stylesheet">
+    <!-- tailwind borovai -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- google font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<style>
+.hind {
+  font-family: "Hind Siliguri", sans-serif;
+}
+.poppins{
+  font-family: "Poppins", sans-serif;
+}
+</style>
+
+</head>
+<body>
+    <header class="mx-10 mt-5">
+        <nav class="flex justify-between">
+            <div class="flex items-center">
+                <p class="">English</p>
+                <img src="assets/logo.png" alt="">
+                <p class="">জানালা</p>
+            </div>
+            <div class="flex items-center gap-3">
+                <button class="btn text-[#422AD5] px-5  font-semibold border-2 border-[#422AD5]"><img src="assets/fa-circle-question.png" alt="">Faq</button>
+                <button class="btn text-[#422AD5]  font-semibold px-5 border-2  border-[#422AD5]"><img src="assets/fa-book-open.png" alt="">Learn</button>
+                <button class="btn text-[#422AD5]  font-semibold px-5 border-2  border-[#422AD5]"><img src="assets/fa-arrow-right-from-bracket.png" alt="">Logout</button>
+            </div>
+        </nav>
+
+        <section class="mt-14 flex items-center ">
+            <div>
+                <h1 class="text-3xl font-bold mb-2"><span class="text-[#00BCFF] ">English</span> is Easy!!</h1>
+                <p class="text-[#18181B] text-xl">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা <br>  আপনার দক্ষতা বাড়াতে চান,আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
+                
+                <div>
+                    <input class="border-2 rounded p-2 mt-2 w-1/3" placeholder="Enter Your Name" type="text">
+                </div>
+                <div>
+                    <input class="border-2 p-2 mt-2 w-1/3 rounded" placeholder="Input your password......" type="password" name="" id="">
+                </div>
+                <button class="btn btn-primary  my-2 text-white px-4 bg-[#422AD5]">Get Started</button>
+            </div>
+            <div>
+                <img src="assets/hero-student.png" alt="">
+            </div>
+
+        </section>
+    </header>
+
+    <main class="mt-24">
+        <h1 class="items-center text-center text-3xl font-bold"><span class="text-[#00BCFF] ">Let's</span> Learn Vocabularies</h1>
+
+        <section>
+            <div id="button-container" class="mt-5 mb-5 flex justify-center gap-5 items-center">
+            </div>
+
+            <div id="card-container" class="mx-14 mb-24 rounded-xl bg-[#F8F8F8] ">
+
+               <div id="default">
+                <p class="text-sm text-center mb-2 pt-14">আপনি এখনো কোন Lesson Select করেন নি</p>
+                <p class="text-3xl text-center pb-14">একটি Lesson Select করুন।</p>
+               </div>
+               <div id="no-content">
+               </div>
+
+                <div id="display-card" class="grid grid-cols-3 gap-3 pb-5 px-3 rounded-xl">         
+                      
+                </div>          
+            </div>
+        </section>
+         
+        <!-- Open the modal using ID.showModal() method -->
+    
+        <dialog id="video_details" class="modal">
+            <div class="modal-box">
+                <div id="details-container">
+                </div>
+                <div class="modal-action flex justify-start">
+                    <form method="dialog">
+                        <button class="btn bg-[#422AD5] p-4 text-white font-bold rounded-xl">Complete Learning</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
+    </main>
+
+    <section id="accordian" class="mx-14 mb-40 grid  gap-5">
+        <!-- 1st question -->
+        <div class="collapse collapse-plus bg-[#F8F8F8] ">
+            <input type="radio" name="my-accordion-3" checked="checked" />
+            <div class="collapse-title text-xl font-bold">the difference between var, let, and const</div>
+            <div class="collapse-content text-sm">var: Works inside functions, can be used before declaration, and can be changed <br>let: Works inside blocks ({}), cannot be used before declaration, but can be changed. <br> const: Works inside blocks, must be assigned when declared, and cannot be changed</div>
+          </div>
+          <!-- 2nd question -->
+
+          <div class="collapse collapse-plus bg-[#F8F8F8]">
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title text-xl font-bold">the difference between map(), forEach(), and filter()</div>
+            <div class="collapse-content text-sm">map(): Creates a new array by transforming each element. <br>
+                forEach(): Loops through elements but does not return a new array. <br>
+                filter(): Creates a new array with only elements that pass a condition.</div>
+          </div>
+
+          <!-- 3rd question -->
+          <div class="collapse collapse-plus bg-[#F8F8F8]">
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title text-xl font-bold">explain arrow functions and how they are different from regular functions</div>
+            <div class="collapse-content text-sm">Arrow functions (=>) are a shorter way to write functions in JavaScript. They don’t have their own this, so they take this from the surrounding scope. Unlike regular functions, arrow functions cannot be used as constructors and don’t have the arguments object. They are great for simple functions but not for methods inside objects.</div>
+          </div>
+
+          <!-- 4th question -->
+          <div class="collapse collapse-plus bg-[#F8F8F8] ">
+            <input type="radio" name="my-accordion-3" checked="checked" />
+            <div class="collapse-title text-xl font-bold">how JavaScript Promises work </div>
+            <div class="collapse-content text-sm">A JavaScript Promise is an object that represents the result of an asynchronous operation (success or failure). It has three states: pending, resolved (fulfilled), or rejected, and uses .then() for success and .catch() for errors.</div>
+          </div>
+
+          <!-- 5th queation -->
+          <div class="collapse collapse-plus bg-[#F8F8F8]">
+            <input type="radio" name="my-accordion-3" checked="checked" />
+            <div class="collapse-title  text-xl font-bold">how closures work in JavaScript</div>
+            <div class="collapse-content text-sm">A closure happens when a function remembers and accesses variables from its outer scope even after the outer function has finished running. This allows private variables and maintains state between function calls.</div>
+          </div>
+
+    </section>
+
+
+    <hr class="mb-10 border-2 border-[#FFEBEB]">
+    <footer class="mx-10 mb-10">
+        
+
+        <div class="flex justify-between items-end">
+            <div>
+                <div class="flex items-center">
+                    <p class="">English</p>
+                    <img src="assets/logo.png" alt="">
+                    <p class="">জানালা</p>
+                </div>
+                <p>  ইংরেজি শিখুন সহজে </p>
+                <p>Providing ED-Tech Applications since 2025</p>
+            </div>
+    
+            <div>
+
+                <p>Follow us</p>
+                <div class="flex gap-3" >
+                    <img class="w-6" src="assets/fb-thumb.png" alt="">
+                    <img class="w-8" src="assets/youtube-thumb.png" alt="">
+                    <img class="w-6" src="assets/instagram-thumb.png" alt="">
+                </div>
+
+                
+            </div>
+        </div>
+
+
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
+
+
