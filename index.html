@@ -46,18 +46,32 @@ html{
 </head>
 <body>
 
-    <nav id="nav1" class="sticky top-0 z-50 bg-slate-100 shadow-md py-2 px-8 mt-3   md:flex md:justify-between">
-        <div class="flex items-center">
-            <p class="poppins font-semibold">English</p>
-            <img src="assets/logo.png" alt="">
-            <p class="tiroBangla font-semibold">জানালা</p>
+    <nav id="nav1" class="sticky top-0 z-50 bg-slate-100 shadow-md py-2 px-8 mt-3 flex-col gap-3 md:flex-row  md:justify-between">
+        <!-- Logo and Text Container -->
+        <div class="flex items-center ">
+          <p class="poppins font-semibold">English</p>
+          <img src="assets/logo.png" alt="">
+          <p class="tiroBangla font-semibold">জানালা</p>
         </div>
-        <div class="flex items-center md:gap-3">
-            <button id="faqbtn" class=" poppins btn text-[#422AD5] md:px-5  md:font-semibold border-2 border-[#422AD5] hover:bg-[#422AD5] hover:text-white "><i class="fa-solid fa-circle-question"></i>FAQ</button>
-            <button id="learnbtn" class="btn poppins text-[#422AD5]  font-semibold px-5 border-2  border-[#422AD5] hover:bg-[#422AD5] hover:text-white"><i class="fa-solid fa-book-open"></i>Learn</button>
-            <button id="logoutbtn" class="btn poppins text-[#422AD5]  font-semibold px-5 border-2  border-[#422AD5] hover:bg-[#422AD5] hover:text-white"><i class="fa-solid fa-right-from-bracket"></i>Logout</button>
+      
+        <!-- Buttons Container -->
+        <div class="flex  gap-5  sm:gap-3 items-center">
+          <!-- FAQ Button -->
+          <button id="faqbtn" class="w-24 md:w-32 poppins rounded-xl flex items-center justify-center gap-2 md:p-3 text-[#422AD5] md:font-semibold border-2 border-[#422AD5] hover:bg-[#422AD5] hover:text-white">
+            <i class="fa-solid fa-circle-question"></i>FAQ
+          </button>
+      
+          <!-- Learn Button -->
+          <button id="learnbtn" class="w-24 md:w-32 flex items-center justify-center md:p-3 gap-2 rounded-xl poppins text-[#422AD5] font-semibold px-5 border-2 border-[#422AD5] hover:bg-[#422AD5] hover:text-white">
+            <i class="fa-solid fa-book-open"></i>Learn
+          </button>
+      
+          <!-- Logout Button -->
+          <button id="logoutbtn" class="w-24 md:w-32 flex items-center justify-center md:p-3 rounded-xl gap-2 poppins text-[#422AD5] font-semibold px-5 border-2 border-[#422AD5] hover:bg-[#422AD5] hover:text-white">
+            <i class="fa-solid fa-right-from-bracket"></i>Logout
+          </button>
         </div>
-    </nav>
+      </nav>
 
     <header class="mx-10 mt-5">
 
