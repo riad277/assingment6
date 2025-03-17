@@ -24,12 +24,12 @@ document.getElementById('start-btn').addEventListener('click', function () {
     const passwordNum = document.getElementById('password').value.trim();
 
     if (inputName === '' || passwordNum === '') {
-       pronounceWord("chudir bhai input thik kore de");
+       pronounceWord("fill both input");
         return;
     }
 
     if (passwordNum !== '123456') {
-        pronounceWord(' shala vondo password vul');
+        pronounceWord('password is incorrect');
         return;
     }
 
